@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HealthCheckController {
 
-	@RequestMapping("/")
+	@RequestMapping(path= {"/check","/"})
 	public String home() {
 		return "server started successfully !";
 	}
