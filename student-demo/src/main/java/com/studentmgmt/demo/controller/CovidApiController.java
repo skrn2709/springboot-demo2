@@ -1,5 +1,6 @@
 package com.studentmgmt.demo.controller;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -11,23 +12,29 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.studentmgmt.demo.model.CovidData;
 import com.studentmgmt.demo.model.CovidRow;
 
-@RestController
 @RequestMapping(path = "/covidapi")
 @CrossOrigin
 public class CovidApiController {
 
 	@GetMapping(path = "/getData")
-	public ResponseEntity<List<CovidRow>> getData(){
-		List<CovidRow> data=null;
-		data=Arrays.asList(
+	public ResponseEntity<CovidData> getData(){
+		CovidData data=new CovidData();
+	
+		List<CovidRow> dataList=new ArrayList();
+		dataList=Arrays.asList(
 				new CovidRow("Narayana","19/04 Night",97),
 				new CovidRow("Bhagya","19/04 Night",98),
 				new CovidRow("Kiran","19/04 Night",97)
 				);
-		ResponseEntity<List<CovidRow>> response=
-				new ResponseEntity<List<CovidRow>>(data, HttpStatus.OK);
+	
+		data.setCovidData(dataList);
+		ResponseEntity<CovidData> response=
+				new ResponseEntity<CovidData>(
+						data,
+						HttpStatus.OK);
 		return response;
 	}
 	
