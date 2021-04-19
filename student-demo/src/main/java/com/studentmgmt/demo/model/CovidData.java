@@ -3,7 +3,7 @@ package com.studentmgmt.demo.model;
 import java.util.List;
 
 public class CovidData {
- private List<CovidRow> covidData;
+ private List<CovidTBL> covidData;
 
 public CovidData() {
 	super();
@@ -15,12 +15,12 @@ public String toString() {
 	return "CovidData [covidData=" + covidData + "]";
 }
 
-public List<CovidRow> getCovidData() {
+public List<CovidTBL> getCovidData() {
 	return covidData;
 }
 
-public void setCovidData(List<CovidRow> covidData) {
-	this.covidData = covidData;
+public void setCovidData(List<CovidTBL> list) {
+	this.covidData = list;
 }
  
 }
